@@ -32,8 +32,8 @@ test("form shows success message on submit with form details", async () => {
     /* Submit Form */
     userEvent.click(submitButton)
     
-    /* Verify Success Msg appears */
-    let nSuccessMsg = await renderedComponent.findByTestId('successMessage')
-    expect(nSuccessMsg)
+    /* Verify Success Message appears */
+    let nSuccessMsg = await renderedComponent.findByTestId('successMessage');
+    expect(nSuccessMsg);
 
 });
