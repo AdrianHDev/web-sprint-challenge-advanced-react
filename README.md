@@ -136,9 +136,26 @@ test("displays plants in cart", () => {
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Add your answers to the questions within `interview_answers.md` file. These will not be counted as a part of your sprint score but will be helpful for preparing you for your endorsement interview, and enhancing overall understanding.
 
 1. What are the main differences between a stateful and a functional component?
+Originally a functional component was not allowed to be stateful, however this has changed in React.
+However, the difference between stateful and non-stateful components, is that the only data that the non-stateful components can hold are props.
+While props can be a parent component's state, that still not not nessecarily make a component stateful.
+
+The difference between class components & functional components are how state is managed.
+In functional components, state is managed through slices of state that you can create with `.useState()`, while a class component
+will use `this.state = {}`
+To update said state, the `useState()` will return a getter and a setter in an array that you can use, while a class component you will need to use
+this.setState({}), which will automatically assume you're modifying/...spreading previous state. 
+To access state, you will use the getter from `useState`, or `this.state`.
 
 2. When does a componentWillMount function be called? What about a componentWillUpdate?
+`componentWillMount()` is called right before a component is about to be pulled into the page,
+while `componentWillUpdate()` is caled whenever state changes, or a render was forced.
 
 3. Define stateful logic.
+Stateful logic is code using state, that can be reused relatively easily through react hooks.
 
 4. What are the three step of creating a successful test? What is done in each phase?
+The mounting phase, this is where the earlier mentioned `componentWillMount()` is ran, as well as `render()` and `constructor()`, however the ladder before the first render.
+The updating phase, this is where `setState`, or the `useState()` setter can be used to modify our component's state data thus calling `render()`, unless `shouldComponentUpdate()` is called.
+The unmounting phase, the component is removed from the screen, and `componentWillUnmount()` is ran, which you can use to clean up.
+
